@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:islamy_app/ui/home_screen/tabs/quran/quran_resources.dart';
-import 'package:islamy_app/ui/home_screen/tabs/quran/sura_item/sura_item.dart';
+import 'package:islamy_app/ui/home_screen/tabs/quran/sura_item/suras_list.dart';
 import 'package:islamy_app/utils/colors/app_color.dart';
 import 'package:islamy_app/utils/icons/app_icon.dart';
 import 'package:islamy_app/utils/images/app_image.dart';
@@ -19,13 +19,12 @@ class _QuranTabState extends State<QuranTab> {
 
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
-    var height = MediaQuery.of(context).size.height;
+
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: height * calculateRatio(20, isWidth: false)),
+        SizedBox(height: 21),
         TextFormField(
           onChanged: (textFormUser) {
             searchByUserInputSura(textFormUser);
@@ -44,7 +43,7 @@ class _QuranTabState extends State<QuranTab> {
 
             prefixIcon: Padding(
               padding: EdgeInsets.symmetric(
-                vertical: height * calculateRatio(15, isWidth: false),
+                vertical: 15,
               ),
               child: SvgPicture.asset(
                 AppIcon.ic_quran,
@@ -61,27 +60,28 @@ class _QuranTabState extends State<QuranTab> {
           ),
         ),
 
-        SizedBox(height: height * calculateRatio(20, isWidth: false)),
+        SizedBox(height:20),
         Text(
           'Most Recently',
           style: Theme.of(context).textTheme.titleMedium,
         ),
-        SizedBox(height: height * calculateRatio(15, isWidth: false)),
+        SizedBox(height: 15),
 
         SizedBox(
-          height: height * calculateRatio(120, isWidth: false),
+          height:MediaQuery.of(context).size.height * 0.17,
 
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
               return Container(
                 padding: EdgeInsets.symmetric(
-                  horizontal: width * calculateRatio(10, isWidth: true),
+                  horizontal: 11,
                 ),
                 decoration: BoxDecoration(
                   color: AppColor.gold,
                   borderRadius: BorderRadius.circular(20),
                 ),
+
                 child: Row(
                   children: [
                     Column(
@@ -99,11 +99,12 @@ class _QuranTabState extends State<QuranTab> {
             },
 
             separatorBuilder: (context, index) =>
-                SizedBox(width: width * calculateRatio(10, isWidth: true)),
+                SizedBox(width: 10),
             itemCount: 114,
           ),
         ),
-        SizedBox(height: height * calculateRatio(15, isWidth: false)),
+        //M
+        SizedBox(height:10),
         Text(
           ' Suras List',
           style: Theme.of(context).textTheme.titleMedium,
@@ -111,7 +112,7 @@ class _QuranTabState extends State<QuranTab> {
         Expanded(
           child: ListView.separated(
             padding: EdgeInsets.symmetric(
-              vertical: height * calculateRatio(20, isWidth: false),
+              vertical: 15,
             ),
             itemBuilder: (context, index) {
               return GestureDetector(
@@ -120,12 +121,13 @@ class _QuranTabState extends State<QuranTab> {
                       arguments:searchResultOfSuraList[index]
                     );
                   },
-                  child: SuraItem(index: searchResultOfSuraList[index],width: width,height: height,));
+                  //M
+                  child: SurasList(index: searchResultOfSuraList[index]));
             },
             separatorBuilder: (context, index) => Divider(
-              endIndent: width * calculateRatio(60, isWidth: true),
+              endIndent: 64,
               thickness: 1.5,
-              indent: width * calculateRatio(60, isWidth: true),
+              indent: 64,
             ),
             itemCount: searchResultOfSuraList.length,
           ),

@@ -22,8 +22,11 @@ class _SuraDesignAndContentState extends State<SuraDesignAndContent> {
     return Container(
       alignment: Alignment.center,
       margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+      //M
       padding: EdgeInsets.symmetric(horizontal: width * 0.01),
+      //M
       width: width * calculateRatio(393, isWidth: true),
+      //M
       height: height * calculateRatio(80, isWidth: false),
       decoration: BoxDecoration(
         border: Border.all(

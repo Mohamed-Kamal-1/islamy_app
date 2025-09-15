@@ -5,35 +5,24 @@ import '../../../../../main.dart';
 import '../../../../../utils/colors/app_color.dart';
 import '../../../../../utils/images/app_image.dart';
 
-class SuraItem extends StatelessWidget {
+class SurasList extends StatelessWidget {
   final int index;
-  final double width;
-  final double height;
-
-  const SuraItem({
+  const SurasList({
     required this.index,
-    required this.width,
-    required this.height,
   });
 
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery
-        .of(context)
-        .size
-        .width;
-    var height = MediaQuery
-        .of(context)
-        .size
-        .height;
     return Row(
       children: [
        Container(
          padding: EdgeInsets.symmetric(
-           vertical: height * calculateRatio(15, isWidth: false),
+           //M
+           vertical: 12,
          ),
-         width: width * calculateRatio(52, isWidth: true),
-         height: height * calculateRatio(52, isWidth: false),
+         //M
+            width: MediaQuery.of(context).size.width *  0.12,
+
          decoration: BoxDecoration(
            image:const DecorationImage(image: AssetImage(AppImage.suraNumber),fit: BoxFit.cover),
          ),
@@ -54,7 +43,8 @@ class SuraItem extends StatelessWidget {
               Text(QuranResources.englishQuranResources[index],
               style: Theme.of(context).textTheme.titleMedium,
               ),
-              SizedBox(height: height * calculateRatio(10, isWidth: false),),
+              //M
+              SizedBox(height:10.01),
               Text(QuranResources.arabicQuranResources[index],
               style: Theme.of(context).textTheme.titleSmall?.copyWith(
                 color: AppColor.white

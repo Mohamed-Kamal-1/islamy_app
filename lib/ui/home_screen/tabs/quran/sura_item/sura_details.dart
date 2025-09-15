@@ -41,14 +41,16 @@ class _SuraDetailsState extends State<SuraDetails> {
       body: DarkBackgroundWidget(
         child: Column(
           children: [
-            SizedBox(height: height * calculateRatio(17, isWidth: false)),
+            //M
+            SizedBox(height:18),
             Text(
               QuranResources.arabicQuranResources[suraIndex],
               style: Theme.of(
                 context,
               ).textTheme.headlineSmall?.copyWith(color: AppColor.gold),
             ),
-            SizedBox(height: height * calculateRatio(50, isWidth: false)),
+            //M
+            SizedBox(height: 40),
             Expanded(
               child: ListView.builder(
                 itemBuilder: (context, index) {
