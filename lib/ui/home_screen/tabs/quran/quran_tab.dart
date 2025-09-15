@@ -15,68 +15,64 @@ class QuranTab extends StatefulWidget {
 }
 
 class _QuranTabState extends State<QuranTab> {
-  List<int> searchResultOfSuraList = List.generate(114, (index) => index,);
+  List<int> searchResultOfSuraList = List.generate(114, (index) => index);
 
   @override
   Widget build(BuildContext context) {
-
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: 21),
-        TextFormField(
-          onChanged: (textFormUser) {
-            searchByUserInputSura(textFormUser);
-          },
-          cursorColor: AppColor.gold,
-          focusNode: FocusNode(),
-          style: TextStyle(color: AppColor.lightGold),
-          decoration: InputDecoration(
-            filled: true,
-            fillColor: Color(0xB3202020),
-            focusedBorder: builtTextFormFieldBorder(),
+        ConstrainedBox(
+          constraints: BoxConstraints(
+            maxHeight: MediaQuery.of(context).size.height * 0.065,
+          ),
+          child: TextFormField(
+            onChanged: (textFormUser) {
+              searchByUserInputSura(textFormUser);
+            },
+            cursorColor: AppColor.gold,
+            focusNode: FocusNode(),
+            style: TextStyle(color: AppColor.lightGold),
+            decoration: InputDecoration(
+              filled: true,
+              fillColor: Color(0xB3202020),
+              focusedBorder: builtTextFormFieldBorder(),
 
-            disabledBorder: builtTextFormFieldBorder(),
+              disabledBorder: builtTextFormFieldBorder(),
 
-            enabledBorder: builtTextFormFieldBorder(),
+              enabledBorder: builtTextFormFieldBorder(),
 
-            prefixIcon: Padding(
-              padding: EdgeInsets.symmetric(
-                vertical: 15,
+              prefixIcon: Padding(
+                padding: EdgeInsets.symmetric(vertical: 15),
+                child: SvgPicture.asset(
+                  AppIcon.ic_quran,
+                  width: 28,
+                  height: 28,
+                  colorFilter: ColorFilter.mode(AppColor.gold, BlendMode.srcIn),
+                ),
               ),
-              child: SvgPicture.asset(
-                AppIcon.ic_quran,
-                width: 28,
-                height: 28,
-                colorFilter: ColorFilter.mode(AppColor.gold, BlendMode.srcIn),
-              ),
-            ),
 
-            hintText: 'Sura Name',
-            hintStyle: Theme.of(context).textTheme.titleMedium?.copyWith(
-              color: Color(0xFFD9D9D9),
+              hintText: 'Sura Name',
+              hintStyle: Theme.of(
+                context,
+              ).textTheme.titleMedium?.copyWith(color: Color(0xFFD9D9D9)),
             ),
           ),
         ),
 
-        SizedBox(height:20),
-        Text(
-          'Most Recently',
-          style: Theme.of(context).textTheme.titleMedium,
-        ),
+        SizedBox(height: 20),
+        Text('Most Recently', style: Theme.of(context).textTheme.titleMedium),
         SizedBox(height: 15),
 
         SizedBox(
-          height:MediaQuery.of(context).size.height * 0.17,
+          height: MediaQuery.of(context).size.height * 0.12,
 
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
               return Container(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 11,
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 11),
                 decoration: BoxDecoration(
                   color: AppColor.gold,
                   borderRadius: BorderRadius.circular(20),
@@ -87,9 +83,18 @@ class _QuranTabState extends State<QuranTab> {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Text(QuranResources.englishQuranResources [index], style:Theme.of(context).textTheme.headlineSmall),
-                        Text(QuranResources.arabicQuranResources [index], style:Theme.of(context).textTheme.headlineSmall),
-                        Text("112 Verses", style: Theme.of(context).textTheme.titleSmall),
+                        Text(
+                          QuranResources.englishQuranResources[index],
+                          style: Theme.of(context).textTheme.headlineSmall,
+                        ),
+                        Text(
+                          QuranResources.arabicQuranResources[index],
+                          style: Theme.of(context).textTheme.headlineSmall,
+                        ),
+                        Text(
+                          "112 Verses",
+                          style: Theme.of(context).textTheme.titleSmall,
+                        ),
                       ],
                     ),
                     Image.asset(AppImage.backgroundSura),
@@ -98,37 +103,31 @@ class _QuranTabState extends State<QuranTab> {
               );
             },
 
-            separatorBuilder: (context, index) =>
-                SizedBox(width: 10),
+            separatorBuilder: (context, index) => SizedBox(width: 10),
             itemCount: 114,
           ),
         ),
         //M
-        SizedBox(height:10),
-        Text(
-          ' Suras List',
-          style: Theme.of(context).textTheme.titleMedium,
-        ),
+        SizedBox(height: 10),
+        Text(' Suras List', style: Theme.of(context).textTheme.titleMedium),
         Expanded(
           child: ListView.separated(
-            padding: EdgeInsets.symmetric(
-              vertical: 15,
-            ),
+            padding: EdgeInsets.symmetric(vertical: 15),
             itemBuilder: (context, index) {
               return GestureDetector(
-                  onTap: (){
-                    Navigator.pushNamed(context, AppRoutes.SuraDetails.route,
-                      arguments:searchResultOfSuraList[index]
-                    );
-                  },
-                  //M
-                  child: SurasList(index: searchResultOfSuraList[index]));
+                onTap: () {
+                  Navigator.pushNamed(
+                    context,
+                    AppRoutes.SuraDetails.route,
+                    arguments: searchResultOfSuraList[index],
+                  );
+                },
+                //M
+                child: SurasList(index: searchResultOfSuraList[index]),
+              );
             },
-            separatorBuilder: (context, index) => Divider(
-              endIndent: 64,
-              thickness: 1.5,
-              indent: 64,
-            ),
+            separatorBuilder: (context, index) =>
+                Divider(endIndent: 64, thickness: 1.5, indent: 64),
             itemCount: searchResultOfSuraList.length,
           ),
         ),
@@ -143,9 +142,9 @@ class _QuranTabState extends State<QuranTab> {
     );
   }
 
-  void searchByUserInputSura(String textFormUser){
+  void searchByUserInputSura(String textFormUser) {
     List<int> addIndexOfSura = [];
-    for(int i = 0; i < QuranResources.englishQuranResources.length; i++){
+    for (int i = 0; i < QuranResources.englishQuranResources.length; i++) {
       if (QuranResources.englishQuranResources[i].contains(textFormUser)) {
         addIndexOfSura.add(i);
       }
@@ -154,7 +153,7 @@ class _QuranTabState extends State<QuranTab> {
       }
     }
     setState(() {
-    searchResultOfSuraList = addIndexOfSura;
+      searchResultOfSuraList = addIndexOfSura;
     });
   }
 }
