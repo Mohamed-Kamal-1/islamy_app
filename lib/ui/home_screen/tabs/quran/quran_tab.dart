@@ -5,8 +5,6 @@ import 'package:islamy_app/ui/home_screen/tabs/quran/sura_item/suras_list.dart';
 import 'package:islamy_app/utils/colors/app_color.dart';
 import 'package:islamy_app/utils/icons/app_icon.dart';
 import 'package:islamy_app/utils/images/app_image.dart';
-
-import '../../../../main.dart';
 import '../../../../utils/routes/app_routes.dart';
 
 class QuranTab extends StatefulWidget {
