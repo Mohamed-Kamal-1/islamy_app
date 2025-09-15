@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:islamy_app/main.dart';
 import 'package:islamy_app/ui/home_screen/tabs/quran/quran_resources.dart';
 import 'package:islamy_app/ui/home_screen/tabs/quran/sura_item/sura_design_content.dart';
 import 'package:islamy_app/utils/colors/app_color.dart';
@@ -20,8 +19,6 @@ class _SuraDetailsState extends State<SuraDetails> {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-    final height = MediaQuery.of(context).size.height;
     int suraIndex = ModalRoute.of(context)!.settings.arguments as int;
 
     if (ayatOfSura.isEmpty) {

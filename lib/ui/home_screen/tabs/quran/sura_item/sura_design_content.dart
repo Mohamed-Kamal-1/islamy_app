@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:islamy_app/main.dart';
 import 'package:islamy_app/utils/colors/app_color.dart';
 
 class SuraDesignAndContent extends StatefulWidget {
@@ -25,9 +24,9 @@ class _SuraDesignAndContentState extends State<SuraDesignAndContent> {
       //M
       padding: EdgeInsets.symmetric(horizontal: width * 0.01),
       //M
-      width: width * calculateRatio(393, isWidth: true),
+      width: width * 0.91,
       //M
-      height: height * calculateRatio(80, isWidth: false),
+      height: height * 0.085,
       decoration: BoxDecoration(
         border: Border.all(
           color: AppColor.gold,

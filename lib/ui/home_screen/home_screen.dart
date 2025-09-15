@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:islamy_app/main.dart';
 import 'package:islamy_app/ui/home_screen/tabs/hadeth/hadeth_tab.dart';
 import 'package:islamy_app/ui/home_screen/tabs/quran/quran_tab.dart';
 import 'package:islamy_app/ui/home_screen/tabs/radio/radio_tab.dart';
@@ -36,14 +35,13 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
-    var height = MediaQuery.of(context).size.height;
     return opacityBackgroundWidget(
       backgroundImagePath: backgroundImages[selectIndex],
       child: SafeArea(
         child: Scaffold(
           body: Container(
             margin: EdgeInsets.symmetric(
-              horizontal: width * calculateRatio(20, isWidth: true),
+              horizontal: width * 0.04,
             ),
             child: Column(children: [Expanded(child: tabs[selectIndex])]),
           ),
@@ -105,10 +103,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return selectIndex == index
         ? Container(
             padding: EdgeInsets.symmetric(
-              vertical:
-                  MediaQuery.of(context).size.height *
-                  calculateRatio(6, isWidth: false),
-              horizontal:  MediaQuery.of(context).size.width * calculateRatio(20, isWidth: true)
+              vertical: 6 ,
+              horizontal:  MediaQuery.of(context).size.width * 0.04,
             ),
             decoration: BoxDecoration(
               color: AppColor.backgroundSelect,

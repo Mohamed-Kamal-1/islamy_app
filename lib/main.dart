@@ -6,17 +6,6 @@ import 'package:islamy_app/utils/routes/app_routes.dart';
 
 void main() {
   runApp(MyApp());
-  calculateRatio;
-}
-
-double calculateRatio(double dimension, {required bool isWidth}) {
-  double result;
-  if (isWidth) {
-    result = dimension / 430;
-  } else {
-    result = dimension / 932;
-  }
-  return (result * 1000).truncateToDouble() / 1000;
 }
 
 class MyApp extends StatelessWidget {

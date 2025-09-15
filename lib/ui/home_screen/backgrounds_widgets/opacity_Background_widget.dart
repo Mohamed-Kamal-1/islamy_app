@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../../main.dart';
 import '../../../utils/images/app_image.dart';
 
 class opacityBackgroundWidget extends StatelessWidget {
@@ -11,7 +10,6 @@ class opacityBackgroundWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Stack(
@@ -26,12 +24,12 @@ class opacityBackgroundWidget extends StatelessWidget {
             children: [
               Padding(
                 padding: EdgeInsets.only(
-                  top: height * calculateRatio(30, isWidth: false),
+                  top: height * 0.032,
                 ),
                 child: Image.asset(
                   AppImage.logo,
-                  width: width * calculateRatio(299, isWidth: true),
-                  height: height * calculateRatio(141, isWidth: false),
+                  width: 0.695,
+                    height: height * 0.151,
                   fit: BoxFit.cover,
                 ),
               ),
