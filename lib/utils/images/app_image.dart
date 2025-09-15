@@ -9,5 +9,6 @@ class AppImage {
   static const String backgroundSura ='${_basePath}img_most_recent.png';
   static const String suraNumber ='${_basePath}suraNumber.png';
   static const String darkBackground ='${_basePath}dark_background.png';
+  static const String sebha ='${_basePath}Sebha.png';
 
 }
