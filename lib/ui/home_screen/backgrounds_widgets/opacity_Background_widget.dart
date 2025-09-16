@@ -11,6 +11,7 @@ class opacityBackgroundWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Stack(
         children: [
@@ -28,7 +29,7 @@ class opacityBackgroundWidget extends StatelessWidget {
                 ),
                 child: Image.asset(
                   AppImage.logo,
-                  width: 0.695,
+                  width: width * 0.695,
                     height: height * 0.151,
                   fit: BoxFit.cover,
                 ),

@@ -110,6 +110,8 @@ class _QuranTabState extends State<QuranTab> {
         Text(' Suras List', style: Theme.of(context).textTheme.titleMedium),
         Expanded(
           child: ListView.separated(
+            shrinkWrap: true,
+            // keyboardDismissBehavior:ScrollViewKeyboardDismissBehavior.onDrag ,
             padding: EdgeInsets.symmetric(vertical: 15),
             itemBuilder: (context, index) {
               return GestureDetector(
@@ -143,11 +145,16 @@ class _QuranTabState extends State<QuranTab> {
   void searchByUserInputSura(String textFormUser) {
     List<int> addIndexOfSura = [];
     for (int i = 0; i < QuranResources.englishQuranResources.length; i++) {
-      if (QuranResources.englishQuranResources[i].contains(textFormUser)) {
+      if (QuranResources.englishQuranResources[i].toLowerCase().contains(
+            textFormUser.toLowerCase(),
+          ) ||
+          QuranResources.arabicQuranResources[i].toLowerCase().contains(
+            textFormUser.toLowerCase(),
+          )) {
         addIndexOfSura.add(i);
       }
-      if (QuranResources.arabicQuranResources[i].contains(textFormUser)) {
-        addIndexOfSura.add(i);
+      else{
+
       }
     }
     setState(() {

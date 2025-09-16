@@ -34,7 +34,7 @@ class _SuraDetailsState extends State<SuraDetails> {
           ).textTheme.titleMedium?.copyWith(color: AppColor.gold),
         ),
       ),
-
+        resizeToAvoidBottomInset: true,
       body: DarkBackgroundWidget(
         child: Column(
           children: [

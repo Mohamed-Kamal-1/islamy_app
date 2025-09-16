@@ -39,6 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundImagePath: backgroundImages[selectIndex],
       child: SafeArea(
         child: Scaffold(
+          resizeToAvoidBottomInset: true,
           body: Container(
             margin: EdgeInsets.symmetric(
               horizontal: width * 0.04,
