@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:islamy_app/ui/home_screen/tabs/quran/quran_resources.dart';
+import 'package:islamy_app/ui/home_screen/tabs/quran/quran_sources.dart';
 import 'package:islamy_app/ui/home_screen/tabs/quran/sura_item/sura_design_content.dart';
-import 'package:islamy_app/utils/colors/app_color.dart';
+import 'package:islamy_app/core/colors/app_color.dart';
 
 import '../../../backgrounds_widgets/dark_Background_widget.dart';
 

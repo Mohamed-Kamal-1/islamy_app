@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:islamy_app/ui/home_screen/tabs/quran/quran_resources.dart';
+import 'package:islamy_app/ui/home_screen/tabs/quran/quran_sources.dart';
 import 'package:islamy_app/ui/home_screen/tabs/quran/sura_item/suras_list.dart';
-import 'package:islamy_app/utils/colors/app_color.dart';
-import 'package:islamy_app/utils/icons/app_icon.dart';
-import 'package:islamy_app/utils/images/app_image.dart';
-import '../../../../utils/routes/app_routes.dart';
+import 'package:islamy_app/core/colors/app_color.dart';
+import 'package:islamy_app/core/icons/app_icon.dart';
+import 'package:islamy_app/core/images/app_image.dart';
+import '../../../../core/routes/app_routes.dart';
 
 class QuranTab extends StatefulWidget {
   @override

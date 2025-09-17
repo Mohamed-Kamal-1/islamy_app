@@ -5,9 +5,9 @@ import 'package:islamy_app/ui/home_screen/tabs/quran/quran_tab.dart';
 import 'package:islamy_app/ui/home_screen/tabs/radio/radio_tab.dart';
 import 'package:islamy_app/ui/home_screen/tabs/sebha/sebha_tab.dart';
 import 'package:islamy_app/ui/home_screen/tabs/time/time_tab.dart';
-import 'package:islamy_app/utils/colors/app_color.dart';
-import 'package:islamy_app/utils/icons/app_icon.dart';
-import 'package:islamy_app/utils/images/app_image.dart';
+import 'package:islamy_app/core/colors/app_color.dart';
+import 'package:islamy_app/core/icons/app_icon.dart';
+import 'package:islamy_app/core/images/app_image.dart';
 import 'backgrounds_widgets/opacity_Background_widget.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -37,64 +37,62 @@ class _HomeScreenState extends State<HomeScreen> {
     var width = MediaQuery.of(context).size.width;
     return opacityBackgroundWidget(
       backgroundImagePath: backgroundImages[selectIndex],
-      child: SafeArea(
-        child: Scaffold(
-          resizeToAvoidBottomInset: true,
-          body: Container(
-            margin: EdgeInsets.symmetric(
-              horizontal: width * 0.04,
+      child: Scaffold(
+        resizeToAvoidBottomInset: true,
+        body: Container(
+          margin: EdgeInsets.symmetric(
+            horizontal: width * 0.04,
+          ),
+          child: Column(children: [Expanded(child: tabs[selectIndex])]),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: selectIndex,
+          onTap: (index) {
+            setState(() {
+              selectIndex = index;
+            });
+          },
+          items: [
+            BottomNavigationBarItem(
+              icon: backroundSelectedIcon(
+                index: 0,
+                iconName: AppIcon.ic_quran,
+              ),
+              label: "Quran",
             ),
-            child: Column(children: [Expanded(child: tabs[selectIndex])]),
-          ),
-          bottomNavigationBar: BottomNavigationBar(
-            currentIndex: selectIndex,
-            onTap: (index) {
-              setState(() {
-                selectIndex = index;
-              });
-            },
-            items: [
-              BottomNavigationBarItem(
-                icon: backroundSelectedIcon(
-                  index: 0,
-                  iconName: AppIcon.ic_quran,
-                ),
-                label: "Quran",
-              ),
 
-              BottomNavigationBarItem(
-                icon: backroundSelectedIcon(
-                  index: 1,
-                  iconName: AppIcon.ic_hadeth,
-                ),
-                label: "Hadeth",
+            BottomNavigationBarItem(
+              icon: backroundSelectedIcon(
+                index: 1,
+                iconName: AppIcon.ic_hadeth,
               ),
+              label: "Hadeth",
+            ),
 
-              BottomNavigationBarItem(
-                icon: backroundSelectedIcon(
-                  index: 2,
-                  iconName: AppIcon.ic_sebha,
-                ),
-                label: "Sebha",
+            BottomNavigationBarItem(
+              icon: backroundSelectedIcon(
+                index: 2,
+                iconName: AppIcon.ic_sebha,
               ),
+              label: "Sebha",
+            ),
 
-              BottomNavigationBarItem(
-                icon: backroundSelectedIcon(
-                  index: 3,
-                  iconName: AppIcon.ic_radio,
-                ),
-                label: "Radio",
+            BottomNavigationBarItem(
+              icon: backroundSelectedIcon(
+                index: 3,
+                iconName: AppIcon.ic_radio,
               ),
+              label: "Radio",
+            ),
 
-              BottomNavigationBarItem(
-                icon: backroundSelectedIcon(
-                  index: 4,
-                  iconName: AppIcon.ic_time,
-                ),
-                label: "Time",
+            BottomNavigationBarItem(
+              icon: backroundSelectedIcon(
+                index: 4,
+                iconName: AppIcon.ic_time,
               ),
-            ],
-          ),
+              label: "Time",
+            ),
+          ],
         ),
       ),
     );

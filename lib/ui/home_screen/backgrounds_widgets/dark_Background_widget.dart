@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:islamy_app/utils/colors/app_color.dart';
-import 'package:islamy_app/utils/images/app_image.dart';
+import 'package:islamy_app/core/colors/app_color.dart';
+import 'package:islamy_app/core/images/app_image.dart';
 
 class DarkBackgroundWidget extends StatelessWidget {
   Widget child;

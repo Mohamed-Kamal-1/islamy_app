@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../../utils/images/app_image.dart';
+import '../../../core/images/app_image.dart';
 
 class opacityBackgroundWidget extends StatelessWidget {
   Widget child;
@@ -29,8 +29,8 @@ class opacityBackgroundWidget extends StatelessWidget {
                 ),
                 child: Image.asset(
                   AppImage.logo,
-                  width: width * 0.695,
-                    height: height * 0.151,
+                  width: width * 0.56,
+                    height: height * 0.131,
                   fit: BoxFit.cover,
                 ),
               ),

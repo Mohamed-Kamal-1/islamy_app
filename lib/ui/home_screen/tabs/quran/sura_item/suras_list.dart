@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:islamy_app/ui/home_screen/tabs/quran/quran_resources.dart';
+import 'package:islamy_app/ui/home_screen/tabs/quran/quran_sources.dart';
 
 import '../../../../../main.dart';
-import '../../../../../utils/colors/app_color.dart';
-import '../../../../../utils/images/app_image.dart';
+import '../../../../../core/colors/app_color.dart';
+import '../../../../../core/images/app_image.dart';
 
 class SurasList extends StatelessWidget {
   final int index;

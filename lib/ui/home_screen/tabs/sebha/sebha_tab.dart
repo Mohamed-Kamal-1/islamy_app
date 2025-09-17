@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islamy_app/ui/home_screen/tabs/sebha/azkar_source/azkar_source.dart';
-import 'package:islamy_app/utils/colors/app_color.dart';
-import 'package:islamy_app/utils/images/app_image.dart';
+import 'package:islamy_app/core/colors/app_color.dart';
+import 'package:islamy_app/core/images/app_image.dart';
 
 class SebhaTab extends StatefulWidget {
   @override
@@ -68,11 +67,13 @@ class _SebhaTabState extends State<SebhaTab> {
       counter--;
       turns += 0.1;
       setState(() {});
-    } else {
+    }
+
+    else {
+      turns = 0.0;
       index++;
       counter = AzkarSource.azkarCount[index];
       setState(() {});
-      turns = 0.0;
     }
   }
 }

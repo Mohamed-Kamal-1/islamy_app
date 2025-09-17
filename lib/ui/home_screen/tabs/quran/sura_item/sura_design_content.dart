@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:islamy_app/utils/colors/app_color.dart';
+import 'package:islamy_app/core/colors/app_color.dart';
 
 class SuraDesignAndContent extends StatefulWidget {
   String ayaOfSura;

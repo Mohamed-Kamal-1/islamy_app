@@ -1,8 +1,8 @@
 // import 'package:flutter/material.dart';
 // import 'package:flutter_svg/svg.dart';
 //
-// import '../../../../utils/colors/app_color.dart';
-// import '../../../../utils/icons/app_icon.dart';
+// import '../../../../core/colors/app_color.dart';
+// import '../../../../core/icons/app_icon.dart';
 //
 // class SearchField extends StatelessWidget {
 //   @override
