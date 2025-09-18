@@ -6,6 +6,7 @@ import 'package:islamy_app/core/colors/app_color.dart';
 import 'package:islamy_app/core/icons/app_icon.dart';
 import 'package:islamy_app/core/images/app_image.dart';
 import '../../../../core/routes/app_routes.dart';
+import 'most_recent/most_recent_design.dart';
 
 class QuranTab extends StatefulWidget {
   @override
@@ -63,48 +64,7 @@ class _QuranTabState extends State<QuranTab> {
         Text('Most Recently', style: Theme.of(context).textTheme.titleMedium),
         SizedBox(height: 15),
 
-        SizedBox(
-          height: MediaQuery.of(context).size.height * 0.12,
-
-          child: ListView.separated(
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) {
-              return Container(
-                padding: EdgeInsets.symmetric(horizontal: 11),
-                decoration: BoxDecoration(
-                  color: AppColor.gold,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-
-                child: Row(
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Text(
-                          QuranResources.englishQuranResources[index],
-                          style: Theme.of(context).textTheme.headlineSmall,
-                        ),
-                        Text(
-                          QuranResources.arabicQuranResources[index],
-                          style: Theme.of(context).textTheme.headlineSmall,
-                        ),
-                        Text(
-                          "112 Verses",
-                          style: Theme.of(context).textTheme.titleSmall,
-                        ),
-                      ],
-                    ),
-                    Image.asset(AppImage.backgroundSura),
-                  ],
-                ),
-              );
-            },
-
-            separatorBuilder: (context, index) => SizedBox(width: 10),
-            itemCount: 114,
-          ),
-        ),
+        MostRecentDesign(),
         //M
         SizedBox(height: 10),
         Text(' Suras List', style: Theme.of(context).textTheme.titleMedium),
