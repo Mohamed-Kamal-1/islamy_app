@@ -11,4 +11,6 @@ class AppImage {
   static const String darkBackground = '${_basePath}dark_background.png';
   static const String sebha = '${_basePath}Sebha.png';
   static const String hadithBackground = '${_basePath}Hadith_Card.png';
+  static const String radioBottomBackground = '${_basePath}radio.png';
+
 }

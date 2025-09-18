@@ -1,4 +1,5 @@
 enum AppRoutes {
+  DisplayIntoScreen('displayIntoScreen'),
   HomeScreen('home'),
   SuraDetails('suraDetails');
 
