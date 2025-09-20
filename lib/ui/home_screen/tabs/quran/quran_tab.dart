@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:islamy_app/ui/home_screen/tabs/quran/most_recent/shared_prefs_helper.dart';
 import 'package:islamy_app/ui/home_screen/tabs/quran/quran_sources.dart';
 import 'package:islamy_app/ui/home_screen/tabs/quran/sura_item/suras_list.dart';
 import 'package:islamy_app/core/colors/app_color.dart';
 import 'package:islamy_app/core/icons/app_icon.dart';
-import 'package:islamy_app/core/images/app_image.dart';
 import '../../../../core/routes/app_routes.dart';
 import 'most_recent/most_recent_design.dart';
 
@@ -71,11 +71,11 @@ class _QuranTabState extends State<QuranTab> {
         Expanded(
           child: ListView.separated(
             shrinkWrap: true,
-            // keyboardDismissBehavior:ScrollViewKeyboardDismissBehavior.onDrag ,
             padding: EdgeInsets.symmetric(vertical: 15),
             itemBuilder: (context, index) {
               return GestureDetector(
                 onTap: () {
+                  saveLastSuraIndex(searchResultOfSuraList[index]);
                   Navigator.pushNamed(
                     context,
                     AppRoutes.SuraDetails.route,
@@ -117,8 +117,8 @@ class _QuranTabState extends State<QuranTab> {
 
       }
     }
-    setState(() {
       searchResultOfSuraList = addIndexOfSura;
+    setState(() {
     });
   }
 }
