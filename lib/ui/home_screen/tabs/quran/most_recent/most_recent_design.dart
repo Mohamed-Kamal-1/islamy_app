@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' show Theme;
 import 'package:islamy_app/ui/home_screen/tabs/quran/most_recent/most_recent_provider.dart';
-import 'package:islamy_app/ui/home_screen/tabs/quran/most_recent/shared_prefs_helper.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../../core/colors/app_color.dart';
