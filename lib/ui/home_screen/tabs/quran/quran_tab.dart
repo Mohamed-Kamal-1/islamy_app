@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:islamy_app/ui/home_screen/tabs/quran/most_recent/most_recent_shared_preferences.dart';
 import 'package:islamy_app/ui/home_screen/tabs/quran/most_recent/shared_prefs_helper.dart';
 import 'package:islamy_app/ui/home_screen/tabs/quran/quran_sources.dart';
 import 'package:islamy_app/ui/home_screen/tabs/quran/sura_item/suras_list.dart';
@@ -11,6 +12,7 @@ import 'most_recent/most_recent_design.dart';
 class QuranTab extends StatefulWidget {
   @override
   State<QuranTab> createState() => _QuranTabState();
+
 }
 
 class _QuranTabState extends State<QuranTab> {
