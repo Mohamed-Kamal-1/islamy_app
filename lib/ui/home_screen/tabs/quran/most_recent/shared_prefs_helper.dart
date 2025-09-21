@@ -33,6 +33,5 @@ Future<List<int>> readMostRecentList() async {
   List<int> mostRecentListAsInt = mostRecentList
       .map((element) => int.parse(element))
       .toList();
-  print(mostRecentListAsInt);
   return mostRecentListAsInt;
 }

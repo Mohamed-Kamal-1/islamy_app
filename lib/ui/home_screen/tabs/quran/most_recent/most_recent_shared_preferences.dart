@@ -10,11 +10,13 @@ class MostRecentSharedPreferences{
     _sharedPreferences = await SharedPreferences.getInstance();
   }
 
-  static MostRecentSharedPreferences? mostRecentProvider = null;
+  static MostRecentSharedPreferences? mostRecentSharedPreferences = null;
+
+
   static MostRecentSharedPreferences? getInstance(){
-    if(mostRecentProvider == null){
-      mostRecentProvider = MostRecentSharedPreferences._();
+    if(mostRecentSharedPreferences == null){
+      mostRecentSharedPreferences = MostRecentSharedPreferences._();
     }
-    return mostRecentProvider;
+    return mostRecentSharedPreferences;
   }
 }
