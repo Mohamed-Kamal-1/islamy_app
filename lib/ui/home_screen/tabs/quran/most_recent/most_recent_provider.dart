@@ -16,6 +16,7 @@ class MostRecentProvider extends ChangeNotifier{
         prefs.getStringList(SharedPreferencesKey.mostRecentKey) ?? [];
 
      mostRecentList = storedMostRecentList.map((element) => int.parse(element)).toList();
+     notifyListeners();
   }
 
 }

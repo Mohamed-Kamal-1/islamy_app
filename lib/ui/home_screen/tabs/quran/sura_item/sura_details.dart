@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islamy_app/ui/home_screen/tabs/quran/most_recent/most_recent_provider.dart';
 import 'package:islamy_app/ui/home_screen/tabs/quran/quran_sources.dart';
 import 'package:islamy_app/ui/home_screen/tabs/quran/sura_item/sura_design_content.dart';
 import 'package:islamy_app/core/colors/app_color.dart';
+import 'package:provider/provider.dart';
 
 import '../../../backgrounds_widgets/dark_Background_widget.dart';
 
@@ -17,10 +19,20 @@ class _SuraDetailsState extends State<SuraDetails> {
 
   List<String> ayatOfSura = [];
 
+  late MostRecentProvider mostRecentProvider;
+
+  @override
+  void dispose() {
+    super.dispose();
+    mostRecentProvider.readMostRecentList();
+  }
+
   @override
   Widget build(BuildContext context) {
+
     int suraIndex = ModalRoute.of(context)!.settings.arguments as int;
 
+    mostRecentProvider = Provider.of<MostRecentProvider>(context);
     if (ayatOfSura.isEmpty) {
       loadSuraContent(suraIndex);
     }

@@ -18,20 +18,20 @@ void saveLastSuraIndex(int newSuraIndex) async {
     mostRecentList.insert(0, '$newSuraIndex');
   }
 
-  if (mostRecentList.length > 3) {
-    mostRecentList = mostRecentList.sublist(0,3);
+  if (mostRecentList.length > 5) {
+    mostRecentList = mostRecentList.sublist(0,5);
   }
   await prefs.setStringList(SharedPreferencesKey.mostRecentKey, mostRecentList);
 }
 
-Future<List<int>> readMostRecentList() async {
-  final SharedPreferences prefs = await SharedPreferences.getInstance();
-
-  List<String> mostRecentList =
-      prefs.getStringList(SharedPreferencesKey.mostRecentKey) ?? [];
-
-  List<int> mostRecentListAsInt = mostRecentList
-      .map((element) => int.parse(element))
-      .toList();
-  return mostRecentListAsInt;
-}
+// Future<List<int>> readMostRecentList() async {
+//   final SharedPreferences prefs = await SharedPreferences.getInstance();
+//
+//   List<String> mostRecentList =
+//       prefs.getStringList(SharedPreferencesKey.mostRecentKey) ?? [];
+//
+//   List<int> mostRecentListAsInt = mostRecentList
+//       .map((element) => int.parse(element))
+//       .toList();
+//   return mostRecentListAsInt;
+// }

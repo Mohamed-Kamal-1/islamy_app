@@ -12,7 +12,6 @@ class MostRecentSharedPreferences{
 
   static MostRecentSharedPreferences? mostRecentSharedPreferences = null;
 
-
   static MostRecentSharedPreferences? getInstance(){
     if(mostRecentSharedPreferences == null){
       mostRecentSharedPreferences = MostRecentSharedPreferences._();
