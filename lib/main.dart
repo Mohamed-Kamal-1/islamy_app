@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.dark,
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.HomeScreen.route,
+      initialRoute: AppRoutes.DisplayIntoScreen.route,
       routes: {
         AppRoutes.DisplayIntoScreen.route: (context) => DisplayIntoScreen(),
         AppRoutes.HomeScreen.route: (context) => HomeScreen(),
