@@ -9,6 +9,8 @@ import '../../../../core/routes/app_routes.dart';
 import 'most_recent/most_recent_design.dart';
 
 class QuranTab extends StatefulWidget {
+  const QuranTab({super.key});
+
   @override
   State<QuranTab> createState() => _QuranTabState();
 }
@@ -26,20 +28,22 @@ class _QuranTabState extends State<QuranTab> {
           constraints: BoxConstraints(
             maxHeight: MediaQuery.of(context).size.height * 0.065,
           ),
-          child: TextFormField(
+          child: TextField(
             onChanged: (textFormUser) {
               searchByUserInputSura(textFormUser);
             },
             cursorColor: AppColor.gold,
-            focusNode: FocusNode(),
+
+            // focusNode: FocusNode(),
             style: const TextStyle(color: AppColor.lightGold),
             decoration: InputDecoration(
+              focusColor: AppColor.black,
               filled: true,
               fillColor: const Color(0xB3202020),
               focusedBorder: builtTextFormFieldBorder(),
               disabledBorder: builtTextFormFieldBorder(),
               enabledBorder: builtTextFormFieldBorder(),
-              prefixIcon:  Padding(
+              prefixIcon: Padding(
                 padding: EdgeInsets.symmetric(vertical: 15),
                 child: SvgPicture.asset(
                   AppIcon.ic_quran,
@@ -49,17 +53,16 @@ class _QuranTabState extends State<QuranTab> {
                 ),
               ),
               hintText: 'Sura Name',
-              hintStyle: Theme.of(context)
-                  .textTheme
-                  .titleMedium
-                  ?.copyWith(color: const Color(0xFFD9D9D9)),
+              hintStyle: Theme.of(
+                context,
+              ).textTheme.titleMedium?.copyWith(color: const Color(0xFFD9D9D9)),
             ),
           ),
         ),
         const SizedBox(height: 20),
         Text('Most Recently', style: Theme.of(context).textTheme.titleMedium),
         const SizedBox(height: 15),
-         MostRecentDesign(),
+        MostRecentDesign(),
         const SizedBox(height: 10),
         Text(' Suras List', style: Theme.of(context).textTheme.titleMedium),
         Expanded(
@@ -80,7 +83,7 @@ class _QuranTabState extends State<QuranTab> {
               );
             },
             separatorBuilder: (context, index) =>
-            const Divider(endIndent: 64, thickness: 1.5, indent: 64),
+                const Divider(endIndent: 64, thickness: 1.5, indent: 64),
             itemCount: searchResultOfSuraList.length,
           ),
         ),
@@ -99,8 +102,8 @@ class _QuranTabState extends State<QuranTab> {
     List<int> addIndexOfSura = [];
     for (int i = 0; i < QuranResources.englishQuranResources.length; i++) {
       if (QuranResources.englishQuranResources[i].toLowerCase().contains(
-        textFormUser.toLowerCase(),
-      ) ||
+            textFormUser.toLowerCase(),
+          ) ||
           QuranResources.arabicQuranResources[i].toLowerCase().contains(
             textFormUser.toLowerCase(),
           )) {
