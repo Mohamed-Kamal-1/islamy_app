@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islamy_app/ui/home_screen/tabs/quran/quran_sources.dart';
 
-import '../../../../../main.dart';
 import '../../../../../core/colors/app_color.dart';
 import '../../../../../core/images/app_image.dart';
 
