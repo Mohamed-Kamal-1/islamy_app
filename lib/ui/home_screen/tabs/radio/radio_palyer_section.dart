@@ -4,20 +4,21 @@ import 'package:flutter/material.dart';
 import '../../../../core/colors/app_color.dart';
 import '../../../../core/images/app_image.dart';
 
-class RadioPalyerSection extends StatelessWidget {
+class RadioPlayerSection extends StatelessWidget {
+  const RadioPlayerSection({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+
     return Container(
-      margin: EdgeInsets.only(bottom: 10,top: 5),
-      padding: EdgeInsets.symmetric(
-        vertical: 8,
-      ),
-      height: MediaQuery.of(context).size.height * 0.16,
+      margin: const EdgeInsets.only(bottom: 10, top: 5),
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      height: height * 0.16,
       width: 370,
       decoration: BoxDecoration(
-          color: AppColor.gold,
-          borderRadius: BorderRadius.circular(20)
+        color: AppColor.gold,
+        borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -29,31 +30,26 @@ class RadioPalyerSection extends StatelessWidget {
               fontSize: 20,
             ),
           ),
-
           Container(
-
-
-            decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage(AppImage.radioBottomBackground),fit: BoxFit.fill)
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(AppImage.radioBottomBackground),
+                fit: BoxFit.fill,
+              ),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.play_arrow_sharp,
-                    color: Colors.black,
-                    size: 50,
-                  ),
+              children: const [
+                Icon(
+                  Icons.play_arrow_sharp,
+                  color: Colors.black,
+                  size: 50,
                 ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.volume_up,
-                    color: Colors.black,
-                    size: 50,
-                  ),
+                SizedBox(width: 20),
+                Icon(
+                  Icons.volume_up,
+                  color: Colors.black,
+                  size: 50,
                 ),
               ],
             ),
