@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:islamy_app/core/colors/app_color.dart';
 import 'package:islamy_app/core/intro_screen/intro_image.dart';
-
 import 'back_ground_into.dart';
 
-class  FirstScreen extends StatelessWidget {
+class FirstScreen extends StatelessWidget {
+  const FirstScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,14 +12,13 @@ class  FirstScreen extends StatelessWidget {
       child1: Image.asset(
         IntroImage.firstBackground,
         width: double.infinity,
-        // height: 200,
       ),
       child2: Text(
+        'Welcome To Islmi App',
         textAlign: TextAlign.center,
-        'Welcome To Islmi App ',
-        style: Theme.of(
-          context,
-        ).textTheme.headlineSmall?.copyWith(color: AppColor.gold),
+        style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+          color: AppColor.gold,
+        ),
       ),
     );
   }

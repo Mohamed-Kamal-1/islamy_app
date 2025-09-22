@@ -10,28 +10,29 @@ import 'package:islamy_app/ui/into_screen/third_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class DisplayIntoScreen extends StatefulWidget {
+  const DisplayIntoScreen({super.key});
+
   @override
   State<DisplayIntoScreen> createState() => _DisplayIntoScreenState();
 }
 
 class _DisplayIntoScreenState extends State<DisplayIntoScreen> {
-  final _controller = PageController();
+  final PageController _controller = PageController();
 
-  List<Widget> listOfIntroScreen = [
+  final List<Widget> listOfIntroScreen = [
     FirstScreen(),
     SecondScreen(),
     ThirdScreen(),
-    FourthScreen(),
-    FifthScreen(),
+    const FourthScreen(),
+    const FifthScreen(),
   ];
 
   int selectIndex = 0;
-
   String netPage = 'Next';
 
   void clickOnPreviousPage() {
     _controller.previousPage(
-      duration: Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 300),
       curve: Curves.easeInSine,
     );
   }
@@ -39,41 +40,37 @@ class _DisplayIntoScreenState extends State<DisplayIntoScreen> {
   void clickOnNextPage() {
     if (selectIndex == listOfIntroScreen.length - 1) {
       Navigator.pushReplacementNamed(context, AppRoutes.HomeScreen.route);
+      return;
     }
     _controller.nextPage(
-      duration: Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 300),
       curve: Curves.easeOutSine,
     );
   }
 
-  @override
   @override
   Widget build(BuildContext context) {
     return Stack(
       alignment: Alignment.bottomCenter,
       children: [
         PageView.builder(
+          controller: _controller,
+          physics: const BouncingScrollPhysics(),
+          itemCount: listOfIntroScreen.length,
           onPageChanged: (newIndex) {
-            netPage = (newIndex == listOfIntroScreen.length - 1)
-                ? netPage = 'Finish'
-                : netPage = 'Next';
+            selectIndex = newIndex;
+            netPage = (newIndex == listOfIntroScreen.length - 1) ? 'Finish' : 'Next';
             setState(() {});
           },
-          itemCount: listOfIntroScreen.length,
           itemBuilder: (context, index) {
-            selectIndex = index;
             return listOfIntroScreen[index];
           },
-
-          controller: _controller,
-          physics: BouncingScrollPhysics(),
         ),
         Container(
           margin: EdgeInsets.symmetric(
             horizontal: 20,
             vertical: MediaQuery.of(context).size.height * 0.045,
           ),
-          // color: Colors.redAccent,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -81,14 +78,12 @@ class _DisplayIntoScreenState extends State<DisplayIntoScreen> {
                 onTap: clickOnPreviousPage,
                 child: Text(
                   'Back',
-                  style: Theme.of(
-                    context,
-                  ).textTheme.titleMedium?.copyWith(color: AppColor.gold),
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(color: AppColor.gold),
                 ),
               ),
               SmoothPageIndicator(
                 controller: _controller,
-                count: 5,
+                count: listOfIntroScreen.length,
                 effect: WormEffect(
                   activeDotColor: AppColor.gold,
                   dotColor: AppColor.gray,
@@ -98,9 +93,7 @@ class _DisplayIntoScreenState extends State<DisplayIntoScreen> {
                 onTap: clickOnNextPage,
                 child: Text(
                   netPage,
-                  style: Theme.of(
-                    context,
-                  ).textTheme.titleMedium?.copyWith(color: AppColor.gold),
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(color: AppColor.gold),
                 ),
               ),
             ],
