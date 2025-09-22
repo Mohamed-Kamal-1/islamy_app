@@ -11,56 +11,51 @@ import 'package:islamy_app/core/images/app_image.dart';
 import 'backgrounds_widgets/opacity_Background_widget.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
   int selectIndex = 0;
-  List<String> backgroundImages = [
+
+  final List<String> backgroundImages = const [
     AppImage.backgroundQuran,
     AppImage.backgroundHadeth,
     AppImage.backgroundSebha,
     AppImage.backgroundRadio,
     AppImage.backgroundTime,
   ];
-  List<Widget> tabs = [
+
+  final List<Widget> tabs = [
     QuranTab(),
-    HadethTab(),
+    const HadethTab(),
     SebhaTab(),
-    RadioTab(),
+    const RadioTab(),
     TimeTab(),
   ];
 
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
+    final width = MediaQuery.of(context).size.width;
+
     return opacityBackgroundWidget(
       backgroundImagePath: backgroundImages[selectIndex],
       child: Scaffold(
         resizeToAvoidBottomInset: true,
         body: Container(
-          margin: EdgeInsets.symmetric(
-            horizontal: width * 0.04,
-          ),
+          margin: EdgeInsets.symmetric(horizontal: width * 0.04),
           child: Column(children: [Expanded(child: tabs[selectIndex])]),
         ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: selectIndex,
-          onTap: (index) {
-            setState(() {
-              selectIndex = index;
-            });
-          },
+          onTap: (index) => setState(() => selectIndex = index),
           items: [
             BottomNavigationBarItem(
-              icon: backroundSelectedIcon(
-                index: 0,
-                iconName: AppIcon.ic_quran,
-              ),
+              icon: backroundSelectedIcon(index: 0, iconName: AppIcon.ic_quran),
               label: "Quran",
             ),
-
             BottomNavigationBarItem(
               icon: backroundSelectedIcon(
                 index: 1,
@@ -68,28 +63,16 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               label: "Hadeth",
             ),
-
             BottomNavigationBarItem(
-              icon: backroundSelectedIcon(
-                index: 2,
-                iconName: AppIcon.ic_sebha,
-              ),
+              icon: backroundSelectedIcon(index: 2, iconName: AppIcon.ic_sebha),
               label: "Sebha",
             ),
-
             BottomNavigationBarItem(
-              icon: backroundSelectedIcon(
-                index: 3,
-                iconName: AppIcon.ic_radio,
-              ),
+              icon: backroundSelectedIcon(index: 3, iconName: AppIcon.ic_radio),
               label: "Radio",
             ),
-
             BottomNavigationBarItem(
-              icon: backroundSelectedIcon(
-                index: 4,
-                iconName: AppIcon.ic_time,
-              ),
+              icon: backroundSelectedIcon(index: 4, iconName: AppIcon.ic_time),
               label: "Time",
             ),
           ],
@@ -99,11 +82,12 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget backroundSelectedIcon({required int index, required String iconName}) {
+    final width = MediaQuery.of(context).size.width;
     return selectIndex == index
         ? Container(
             padding: EdgeInsets.symmetric(
-              vertical: 6 ,
-              horizontal:  MediaQuery.of(context).size.width * 0.04,
+              vertical: 6,
+              horizontal: width * 0.04,
             ),
             decoration: BoxDecoration(
               color: AppColor.backgroundSelect,
@@ -113,14 +97,20 @@ class _HomeScreenState extends State<HomeScreen> {
               iconName,
               width: 24,
               height: 24,
-              colorFilter: ColorFilter.mode(AppColor.white, BlendMode.srcIn),
+              colorFilter: const ColorFilter.mode(
+                AppColor.white,
+                BlendMode.srcIn,
+              ),
             ),
           )
         : SvgPicture.asset(
             iconName,
-            colorFilter: ColorFilter.mode(AppColor.black, BlendMode.srcIn),
             width: 24,
             height: 24,
+            colorFilter: const ColorFilter.mode(
+              AppColor.black,
+              BlendMode.srcIn,
+            ),
           );
   }
 }
