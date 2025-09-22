@@ -8,25 +8,27 @@ import '../../../../../core/images/app_image.dart';
 import '../quran_sources.dart';
 
 class MostRecentDesign extends StatefulWidget {
+  const MostRecentDesign({super.key});
+
   @override
   State<MostRecentDesign> createState() => _MostRecentDesignState();
 }
 
 class _MostRecentDesignState extends State<MostRecentDesign> {
-late MostRecentProvider mostRecentProvider;
+  late MostRecentProvider mostRecentProvider;
+
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       mostRecentProvider.readMostRecentList();
-    },);
-
+    });
   }
-
 
   @override
   Widget build(BuildContext context) {
-     mostRecentProvider = Provider.of<MostRecentProvider>(context);
+    mostRecentProvider = Provider.of<MostRecentProvider>(context);
+
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.12,
       child: ListView.separated(
@@ -35,7 +37,7 @@ late MostRecentProvider mostRecentProvider;
           return Visibility(
             visible: mostRecentProvider.mostRecentList.isNotEmpty,
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 11),
+              padding: const EdgeInsets.symmetric(horizontal: 11),
               decoration: BoxDecoration(
                 color: AppColor.gold,
                 borderRadius: BorderRadius.circular(20),
@@ -46,28 +48,32 @@ late MostRecentProvider mostRecentProvider;
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Text(
-                        QuranResources.englishQuranResources[mostRecentProvider.mostRecentList[index]],
-            
+                        QuranResources
+                            .englishQuranResources[mostRecentProvider
+                            .mostRecentList[index]],
                         style: Theme.of(context).textTheme.headlineSmall,
                       ),
                       Text(
-                        QuranResources.arabicQuranResources[mostRecentProvider.mostRecentList[index]],
+                        QuranResources
+                            .arabicQuranResources[mostRecentProvider
+                            .mostRecentList[index]],
                         style: Theme.of(context).textTheme.headlineSmall,
                       ),
                       Text(
-                        QuranResources.ayaNumber[mostRecentProvider.mostRecentList[index]],
+                        QuranResources
+                            .ayaNumber[mostRecentProvider.mostRecentList[index]],
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
                     ],
                   ),
+                  const SizedBox(width: 8),
                   Image.asset(AppImage.backgroundSura),
                 ],
               ),
             ),
           );
         },
-
-        separatorBuilder: (context, index) => SizedBox(width: 10),
+        separatorBuilder: (context, index) => const SizedBox(width: 10),
         itemCount: mostRecentProvider.mostRecentList.length,
       ),
     );

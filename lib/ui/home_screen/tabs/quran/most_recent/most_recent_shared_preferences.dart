@@ -19,3 +19,6 @@ class MostRecentSharedPreferences{
     return mostRecentSharedPreferences;
   }
 }
+class SharedPreferencesKey {
+  static const String mostRecentKey = 'mostRecentKey';
+}
