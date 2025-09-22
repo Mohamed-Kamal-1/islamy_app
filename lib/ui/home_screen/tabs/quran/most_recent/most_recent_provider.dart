@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:islamy_app/ui/home_screen/tabs/quran/most_recent/most_recent_shared_preferences.dart';
-import 'package:islamy_app/ui/home_screen/tabs/quran/most_recent/shared_prefs_helper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class MostRecentProvider extends ChangeNotifier{
