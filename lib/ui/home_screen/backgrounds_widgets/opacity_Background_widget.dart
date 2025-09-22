@@ -3,10 +3,10 @@ import 'package:flutter/cupertino.dart';
 import '../../../core/images/app_image.dart';
 
 class opacityBackgroundWidget extends StatelessWidget {
-  Widget child;
-  String backgroundImagePath;
+  final Widget child;
+  final String backgroundImagePath;
 
-  opacityBackgroundWidget({required this.backgroundImagePath, required this.child});
+  const opacityBackgroundWidget({required this.backgroundImagePath, required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class opacityBackgroundWidget extends StatelessWidget {
       child: Stack(
         children: [
           Image.asset(
-            backgroundImagePath,
+             backgroundImagePath,
             width: double.infinity,
             height: double.infinity,
             fit: BoxFit.cover,
@@ -24,7 +24,7 @@ class opacityBackgroundWidget extends StatelessWidget {
           Column(
             children: [
               Padding(
-                padding: EdgeInsets.only(
+                padding:  EdgeInsets.only(
                   top: height * 0.032,
                 ),
                 child: Image.asset(
