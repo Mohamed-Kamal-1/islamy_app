@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:islamy_app/ui/home_screen/tabs/sebha/azkar_source/azkar_source.dart';
 import 'package:islamy_app/core/colors/app_color.dart';
 import 'package:islamy_app/core/images/app_image.dart';
 import 'package:islamy_app/ui/home_screen/tabs/sebha/sebha_resource/sebha_resource.dart';
@@ -18,12 +15,13 @@ class _SebhaTabState extends State<SebhaTab> {
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         Text(
           textAlign: TextAlign.center,
-          'سَبِّحِ اسْمَ رَبِّكَ الأعلى ',
+           'سَبِّحِ اسْمَ رَبِّكَ الأعلى ',
           style: Theme.of(context).textTheme.headlineSmall?.copyWith(
             color: AppColor.white,
             fontSize: 30,
@@ -35,14 +33,14 @@ class _SebhaTabState extends State<SebhaTab> {
             GestureDetector(
               onTap: increaseIndex,
               child: AnimatedRotation(
-                duration: Duration(seconds: 1),
+                duration:const Duration(seconds: 1),
                 turns: turns,
-                child: Image.asset(AppImage.sebha),
+                child:  Image.asset(AppImage.sebha),
               ),
             ),
             Container(
               // color: Colors.redAccent,
-              height: MediaQuery.of(context).size.height * 0.16,
+              height: height * 0.16,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
