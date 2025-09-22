@@ -8,23 +8,28 @@ import 'package:islamy_app/ui/into_screen/display_into_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
+  runApp(
+    ChangeNotifierProvider(
       create: (context) => MostRecentProvider(),
-      child: MyApp()));
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.dark,
       debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.dark,
+      darkTheme: AppTheme.darkTheme,
       initialRoute: AppRoutes.DisplayIntoScreen.route,
       routes: {
-        AppRoutes.DisplayIntoScreen.route: (context) => DisplayIntoScreen(),
-        AppRoutes.HomeScreen.route: (context) => HomeScreen(),
-        AppRoutes.SuraDetails.route: (context) => SuraDetails(),
+        AppRoutes.DisplayIntoScreen.route: (context) => const DisplayIntoScreen(),
+        AppRoutes.HomeScreen.route: (context) => const HomeScreen(),
+        AppRoutes.SuraDetails.route: (context) => const SuraDetails(),
       },
     );
   }
