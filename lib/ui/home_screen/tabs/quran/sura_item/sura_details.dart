@@ -10,6 +10,8 @@ import 'package:provider/provider.dart';
 import '../../../backgrounds_widgets/dark_Background_widget.dart';
 
 class SuraDetails extends StatefulWidget {
+  const SuraDetails({super.key});
+
   @override
   State<SuraDetails> createState() => _SuraDetailsState();
 }
@@ -23,43 +25,43 @@ class _SuraDetailsState extends State<SuraDetails> {
 
   @override
   void dispose() {
-    super.dispose();
     mostRecentProvider.readMostRecentList();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-
     int suraIndex = ModalRoute.of(context)!.settings.arguments as int;
 
     mostRecentProvider = Provider.of<MostRecentProvider>(context);
     if (ayatOfSura.isEmpty) {
       loadSuraContent(suraIndex);
     }
+
     return Scaffold(
       backgroundColor: Colors.transparent,
       appBar: AppBar(
         title: Text(
           QuranResources.englishQuranResources[suraIndex],
-          style: Theme.of(
-            context,
-          ).textTheme.titleMedium?.copyWith(color: AppColor.gold),
+          style: Theme.of(context)
+              .textTheme
+              .titleMedium
+              ?.copyWith(color: AppColor.gold),
         ),
       ),
-        resizeToAvoidBottomInset: true,
+      resizeToAvoidBottomInset: true,
       body: DarkBackgroundWidget(
         child: Column(
           children: [
-            //M
-            SizedBox(height:18),
+            const SizedBox(height: 18),
             Text(
               QuranResources.arabicQuranResources[suraIndex],
-              style: Theme.of(
-                context,
-              ).textTheme.headlineSmall?.copyWith(color: AppColor.gold),
+              style: Theme.of(context)
+                  .textTheme
+                  .headlineSmall
+                  ?.copyWith(color: AppColor.gold),
             ),
-            //M
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
             Expanded(
               child: ListView.builder(
                 itemBuilder: (context, index) {
@@ -80,8 +82,7 @@ class _SuraDetailsState extends State<SuraDetails> {
     String content = await rootBundle.loadString(
       '$_surasPath${suraIndex + 1}.txt',
     );
-    List<String> lines = content.trim().split('\n');
-    ayatOfSura = lines;
+    ayatOfSura = content.trim().split('\n');
     setState(() {});
   }
 }

@@ -1,31 +1,27 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:islamy_app/core/colors/app_color.dart';
 
 class SuraDesignAndContent extends StatefulWidget {
-  String ayaOfSura;
+  final String ayaOfSura;
 
-  SuraDesignAndContent({required this.ayaOfSura});
+  const SuraDesignAndContent({required this.ayaOfSura, super.key});
 
   @override
   State<SuraDesignAndContent> createState() => _SuraDesignAndContentState();
 }
 
 class _SuraDesignAndContentState extends State<SuraDesignAndContent> {
-
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
-    var height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
+
     return Container(
       alignment: Alignment.center,
       margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-      //M
       padding: EdgeInsets.symmetric(horizontal: width * 0.01),
-      //M
       width: width * 0.91,
-      //M
       height: height * 0.085,
       decoration: BoxDecoration(
         border: Border.all(
@@ -39,11 +35,11 @@ class _SuraDesignAndContentState extends State<SuraDesignAndContent> {
         widget.ayaOfSura,
         textAlign: TextAlign.center,
         textDirection: TextDirection.rtl,
-        style: Theme.of(
-          context,
-        ).textTheme.titleMedium?.copyWith(color: AppColor.gold),
+        style: Theme.of(context)
+            .textTheme
+            .titleMedium
+            ?.copyWith(color: AppColor.gold),
       ),
     );
   }
 }
-
